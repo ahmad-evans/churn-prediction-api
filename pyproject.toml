@@ -1,0 +1,20 @@
+[project]
+name = "churn-prediction-api"
+version = "1.0.0"
+description = "REST API that predicts telecom customer churn"
+requires-python = ">=3.11"
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "RUF"]
+
+[tool.ruff.lint.flake8-bugbear]
+# FastAPI's dependency injection is designed to be used in argument defaults
+extend-immutable-calls = ["fastapi.Depends", "fastapi.Security"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
